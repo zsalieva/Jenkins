@@ -1,10 +1,3 @@
-variable "subnet_id" {}
-
-variable "vpc_id" {}
-
-variable "instance_tenancy" {
-  type = string
-}
 
 variable "key_name" {
   type = string

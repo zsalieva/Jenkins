@@ -1,5 +1,3 @@
-
-instance_tenancy  = "default"
 key_name          = "mymacbook key"
 ssh_key_path      = "~/.ssh/id_rsa.pub"
 region            = "us-east-1"
