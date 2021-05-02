@@ -18,14 +18,6 @@ variable "region" {
   type = string
 }
 
-variable "security_group_name" {
-  type = string
-}
-
-variable "security_group_description" {
-  type = string
-}
-
 variable "prefix" {
   type = string
 }

@@ -1,13 +1,11 @@
-data "aws_subnet" "existing_subnet" {
-  id = var.subnet_id
-}
+
 resource "aws_instance" "web" {
 #   count                  = 4
   ami                    = var.ami[var.region]
   instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_security_group.sg_1.id]
-  subnet_id              = data.aws_subnet.existing_subnet.id
-  key_name               = title(var.key_name)
+  vpc_security_group_ids = [aws_security_group.ec2.id]
+  subnet_id              = aws_subnet.public_subnet.id
+  key_name               = var.key_name
   user_data = <<-EOF
                  #!/bin/bash
                   sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
