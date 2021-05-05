@@ -19,6 +19,14 @@ resource "aws_security_group" "ec2" {
     description = "HTTP"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    from_port   = 8095
+    to_port     = 8095
+    protocol    = "tcp"
+    description = "HTTP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
    ingress {
     from_port   = 50000
     to_port     = 50000
