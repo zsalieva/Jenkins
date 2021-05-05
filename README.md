@@ -1,23 +1,11 @@
 # CI/CD - Presentation
-This presentation has been prepared to bring the CI / CD process concept closer, showing its advantages and use-cases. The presentation consists of:
- - the theoretical part - this presentation (article below is my cheatsheet for this presentation)
- - the practical part - Jenkins pipeline configuration using Jenkinsfile
 
-### Presentation content:
+ ### Presentation content:
 1. CI / CD - explanation of the term.
 2. CI / CD - what the process looks like.
 3. CI / CD - advantages and disadvantages.
 4. Good practices - do's and don'ts.
 5. Jenkinsfile - what is it for?.
-6. Technical part based on real world example.
-
-### How to view presentation:
-- Clone repository.
-- Open `index.html` in the browser.
-
-## Introduction
-The most common source of errors in the work environment is man,
-especially if their work is repeatable. Therefore, every task a machine can do should be. It helps to significantly reduce the number of errors and frees human resources.
 
 ### What is Continuous Integration?
 ![Continuous integration](assets/continious-integration.png)
