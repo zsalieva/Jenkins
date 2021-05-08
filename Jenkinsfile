@@ -9,13 +9,9 @@ pipeline {
             steps {
                 sh 'cd Infrastructure/'
                 sh 'terraform init'
-            }
-        }
-        stage('Terraform Apply') {
-            steps {
-                sh 'cd Infrastructure/'
                 sh 'terraform apply -auto-approve'
             }
         }
+       
     }
 }
