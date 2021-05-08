@@ -2,17 +2,17 @@ pipeline {
     agent any
     parameters{
         string(name: "Name", defaultValue: "", description: "Just a string parameter")
-        choice(name: "Last Name", choices: ['Calik','Kalik'], description: "Choice parameter")
+        choice(name: "Last_Name", choices: ['Calik','Kalik'], description: "Choice parameter")
     }
     stages {
-        stage('build') {
+        stage('Name') {
             steps {
-                echo 'building the application'
+                echo "First Name is: ${params.Name}"
             }
         }
-        stage('Test') {
+        stage('Last Name') {
             steps {
-                echo 'testing the application'
+                echo "Last name is: ${params.Last_Name}"
             }
         }
     }
