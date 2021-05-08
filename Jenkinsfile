@@ -1,14 +1,9 @@
-// jenkins file using parameters
-
 pipeline {
     agent any
-    parameters {
-        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-    }
     stages {
-        stage('Example') {
+        stage('build') {
             steps {
-                echo "${params.Greeting} World!"
+                echo 'building the application'
             }
         }
     }
