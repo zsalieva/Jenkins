@@ -1,18 +1,20 @@
 pipeline {
     agent any
-    parameters{
-        string(name: "Name", defaultValue: "", description: "Just a string parameter")
-        choice(name: "Last_Name", choices: ['Calik','Kalik'], description: "Choice parameter")
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
     }
     stages {
-        stage('Name') {
+        stage('Terraform Init') {
             steps {
-                echo "First Name is: ${params.Name}"
+                sh 'cd /Infrastructure'
+                sh 'terraform init'
             }
         }
-        stage('Last Name') {
+        stage('Terraform Apply') {
             steps {
-                echo "Last name is: ${params.Last_Name}"
+                sh 'cd /Infrastructure'
+                sh 'terraform apply'
             }
         }
     }
