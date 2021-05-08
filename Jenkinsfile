@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh 'cd /Infrastructure'
-                sh 'terraform init'
+                sh 'sudo cd /Infrastructure'
+                sh 'sudo terraform init'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'cd /Infrastructure'
-                sh 'terraform apply'
+                sh 'sudo cd /Infrastructure'
+                sh 'sudo terraform apply -auto-approve'
             }
         }
     }
