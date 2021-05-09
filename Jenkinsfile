@@ -1,8 +1,5 @@
 pipeline {
     agent any
-     parameters {
-        string(name: 'Command', defaultValue: 'apply', description: 'Which terraform command would you like to use?')
-    }
     environment {
         AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
