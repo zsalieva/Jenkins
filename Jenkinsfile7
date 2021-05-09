@@ -12,7 +12,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh '''
-                   cd Infrastructure/
+                   cd vpc/
                    terraform init
 
                 '''
@@ -21,7 +21,7 @@ pipeline {
         stage('Terraform Apply or Destroy') {
             steps {
                 sh """
-                   cd Infrastructure/
+                   cd vpc/
                    terraform ${params.Command} -var-file=${params.tfvars} -auto-approve
                 """
             }
