@@ -10,11 +10,11 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh '''
+                sh """
                    cd Infrastructure/
                    terraform init
-                   terraform "${params.Command}" -auto-approve
-                '''
+                   terraform ${params.Command} -auto-approve
+                """
             }
         }
        
