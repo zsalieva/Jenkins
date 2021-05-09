@@ -13,32 +13,20 @@ pipeline {
                 sh '''
                    cd Infrastructure/
                    terraform init
+
                 '''
             }
         }
         stage('Terraform Apply or Destroy') {
-            input {
-                message 'Apply or Destroy?'
-                ok  'Do it!'
-                parameters {
-                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'apply', description: 'Target Deployment Environment')
-                }
-            }
+           
             steps {
                 sh """
                    cd Infrastructure/
-                   terraform init
-                   terraform ${params.TARGET_ENVIRONMENT} -auto-approve
+                   terraform ${params.Command} -auto-approve
                 """
             }
         }
 
     }
 }
-input {
-    message 'Deploy?'
-    ok  'Do it!'
-    parameters {
-        string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target Deployment Environment')
-    }
-}
+
