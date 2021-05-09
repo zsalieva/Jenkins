@@ -13,7 +13,7 @@ pipeline {
                 sh '''
                    cd Infrastructure/
                    terraform init
-                   terraform ${params.Terraform Command} -auto-approve
+                   terraform ${params.Terraform-Command} -auto-approve
                 '''
             }
         }
