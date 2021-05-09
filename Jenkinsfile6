@@ -1,6 +1,6 @@
 pipeline {
     agent any
-     parameters {
+    parameters {
         string(name: 'Command', defaultValue: 'apply', description: 'Which terraform command would you like to use?')
     }
     environment {
@@ -10,17 +10,17 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh """
+                sh '''
                    cd Infrastructure/
                    terraform init
-                """
+                '''
             }
         }
         stage('Terraform Apply or Destroy') {
-             input{
+            input {
                 message 'Apply or Destroy?'
                 ok  'Do it!'
-                parameters{
+                parameters {
                     string(name: 'TARGET_ENVIRONMENT', defaultValue: 'apply', description: 'Target Deployment Environment')
                 }
             }
@@ -32,14 +32,13 @@ pipeline {
                 """
             }
         }
-       
 
     }
 }
- input{
-                message 'Deploy?'
-                ok  'Do it!'
-                parameters{
-                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target Deployment Environment')
-                }
-            }
+input {
+    message 'Deploy?'
+    ok  'Do it!'
+    parameters {
+        string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target Deployment Environment')
+    }
+}
