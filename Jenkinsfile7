@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh """
                    cd vpc/
-                   terraform ${params.Command} -var-file=${params.tfvars} -auto-approve
+                   terraform ${params.Command} -var-file=${params.environment}.tfvars -auto-approve
                 """
             }
         }
