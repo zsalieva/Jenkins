@@ -7,17 +7,17 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh """
+                sh '''
                    cd Infrastructure/
                    terraform init
-                """
+                '''
             }
         }
         stage('Terraform Apply or Destroy') {
-             input{
+            input {
                 message 'Apply or Destroy?'
                 ok  'Do it!'
-                parameters{
+                parameters {
                     string(name: 'TARGET_ENVIRONMENT', defaultValue: 'apply', description: 'Target Deployment Environment')
                 }
             }
@@ -25,18 +25,10 @@ pipeline {
                 sh """
                    cd Infrastructure/
                    terraform init
-                   terraform ${params.TARGET_ENVIRONMENT} -auto-approve
+                   terraform ${TARGET_ENVIRONMENT} -auto-approve
                 """
             }
         }
-       
 
     }
 }
- input{
-                message 'Deploy?'
-                ok  'Do it!'
-                parameters{
-                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target Deployment Environment')
-                }
-            }
