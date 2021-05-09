@@ -7,9 +7,11 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                sh 'cd Infrastructure/
-                sh  && terraform init'
-                sh 'cd Infrastructure/ && terraform apply -auto-approve'
+                sh '''
+                   cd Infrastructure/
+                   terraform init
+                   terraform apply -auto-approve
+                '''
             }
         }
        
